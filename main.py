@@ -44,17 +44,17 @@ class hailstone_number:
             self.steps += 1
         self.__print()
 
-
-def get_num():
-
-    if len(sys.argv) != 2:
-        raise ValueError("Argument not given")
-    return int(sys.argv[1])
-
-def run():
-    number = hailstone_number(get_num())
-    number.calculate()
-
 if __name__ == "__main__":
     import sys
+
+    def get_num():
+
+        if len(sys.argv) != 2:
+            raise ValueError("Argument not given")
+        return int(sys.argv[1])
+
+    def run():
+        number = hailstone_number(get_num())
+        number.calculate()
+        
     run()
