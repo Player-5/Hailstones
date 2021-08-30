@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
-import sys
-
 class hailstone_number:
 
     def __init__(self, num):
+
+        if not isinstance(num, int):
+            raise TypeError(f"Object type int excpected not {type(num)}.")
+        if num < 1:
+            raise ValueError(f"int value must be greater then 0.")
 
         self.start_num = num
         self.num = num
@@ -34,8 +37,6 @@ class hailstone_number:
             else:
                 self.__odd()
 
-            print(self.num)
-
             if self.num > self.max:
                 self.max = self.num
 
@@ -48,11 +49,12 @@ def get_num():
 
     if len(sys.argv) != 2:
         raise ValueError("Argument not given")
-    return sys.argv[1]
+    return int(sys.argv[1])
 
 def run():
-    number = hailstone_number(13)
+    number = hailstone_number(get_num())
     number.calculate()
 
 if __name__ == "__main__":
+    import sys
     run()
