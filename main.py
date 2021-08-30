@@ -48,13 +48,14 @@ if __name__ == "__main__":
     import sys
 
     def get_num():
+        if len(sys.argv) < 2:
+            raise ValueError("Correct number of argument not given.")
 
-        if len(sys.argv) != 2:
-            raise ValueError("Argument not given")
-        return int(sys.argv[1])
+        return list(map(int, sys.argv[1:]))
 
     def run():
-        number = hailstone_number(get_num())
-        number.calculate()
-        
+        for x in range(len(lst := get_num())):
+            lst[x] = hailstone_number(lst[x])
+            lst[x].calculate()
+
     run()
