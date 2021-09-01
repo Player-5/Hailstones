@@ -43,9 +43,9 @@ class hailstone_number:
 
         # assigning attributes to class instance
         self.start_num = num
-        self.num = num
+        self.num = self.start_num
         self.steps = 0
-        self.max = num
+        self.max = self.start_num
         self.lst = []
         self.lst.append(num)
 
@@ -107,21 +107,21 @@ class hailstone_number:
         print(f"Max: {self.max}")
 
     def calculate(self):
-    """
-    The main method of the class used to determine which calculation to perform
+        """
+        The main method of the class used to determine which calculation to perform
 
-    Parameters
-    ----------
-    Null
+        Parameters
+        ----------
+        Null
 
-    Raises
-    ------
-    Null
+        Raises
+        ------
+        Null
 
-    Returns
-    -------
-    Null
-    """
+        Returns
+        -------
+        Null
+        """
         # loops until num terminates at 1
         while self.num != 1:
 
@@ -183,8 +183,10 @@ if __name__ == "__main__":
         -------
         Null
         """
-        for x in range(len(lst := get_num())):
-            lst[x] = hailstone_number(lst[x])
+
+        lst = list(map(hailstone_number, get_num()))
+
+        for x in range(len(lst)):
             lst[x].calculate()
 
     # runs the calculation on the provided integers
