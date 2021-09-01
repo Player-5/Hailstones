@@ -184,10 +184,7 @@ if __name__ == "__main__":
         Null
         """
 
-        lst = list(map(hailstone_number, get_num()))
-
-        for x in range(len(lst)):
-            lst[x].calculate()
+        list(map(hailstone_number.calculate, list(map(hailstone_number, get_num()))))
 
     # runs the calculation on the provided integers
     run()
