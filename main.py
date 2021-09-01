@@ -143,48 +143,15 @@ class hailstone_number:
         self.__print()
 
 if __name__ == "__main__":
+
     import sys
 
-    def get_num():
-        """
-        Returns a list of arguments provided from the command line.
+    # checks if enough arguments have been passed through
+    if len(sys.argv) < 2:
+        raise ValueError("Correct number of argument not given.")
 
-        Parameters
-        ----------
-        Null
+    # creates list of arguments
+    args = list(map(int, sys.argv[1:]))
 
-        Raises
-        ------
-        Null
-
-        Returns
-        -------
-        args_lst : (lst)
-            an array of integers
-        """
-        if len(sys.argv) < 2:
-            raise ValueError("Correct number of argument not given.")
-
-        return list(map(int, sys.argv[1:]))
-
-    def run():
-        """
-        Loops over the provided numbers to calculate the hailstone conjecture.
-
-        Parameters
-        ----------
-        Null
-
-        Raises
-        ------
-        Null
-
-        Returns
-        -------
-        Null
-        """
-
-        list(map(hailstone_number.calculate, list(map(hailstone_number, get_num()))))
-
-    # runs the calculation on the provided integers
-    run()
+    # turns args into hailstone_number(s) and runs .calculate() on all of them
+    list(map(hailstone_number.calculate, list(map(hailstone_number, args))))
