@@ -6,7 +6,7 @@ A python3 module used to calculate hailstone Numbers, testing if they terminate
 into 4, 2, 1. and recording relevent data about the proccese.
 """
 
-class hailstone_number:
+class hailstone:
     """
     A class to calculate and store relevent data on hailstone numbers
 
@@ -153,5 +153,5 @@ if __name__ == "__main__":
     # creates list of arguments
     args = list(map(int, sys.argv[1:]))
 
-    # turns args into hailstone_number(s) and runs .calculate() on all of them
-    list(map(hailstone_number.calculate, list(map(hailstone_number, args))))
+    # turns args into hailstone(s) and runs .calculate() on all of them
+    list(map(hailstone.calculate, list(map(hailstone, args))))
