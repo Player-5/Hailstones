@@ -44,47 +44,11 @@ class hailstone:
         # assigning attributes to class instance
         self.start_num = num
 
-        self.num, self.max = self.start_num
+        self.num = self.max = self.start_num
 
         self.steps = 0
 
         self.lst = [self.start_num]
-
-    def __even(self):
-        """
-        A method to half the num when it is found to be even
-
-        Parameters
-        ----------
-        Null
-
-        Raises
-        ------
-        Null
-
-        Returns
-        -------
-        Null
-        """
-        self.num /= 2
-
-    def __odd(self):
-        """
-        A method to increase num by 3n+1 when it is found to be odd
-
-        Parameters
-        ----------
-        Null
-
-        Raises
-        ------
-        Null
-
-        Returns
-        -------
-        Null
-        """
-        self.num = (3 * self.num) + 1
 
     def print(self):
         """
@@ -127,7 +91,7 @@ class hailstone:
         while self.num != 1:
 
             # checks whether num is even or odd
-            self.__even() if self.num % 2 == 0 else self.__odd()
+            self.num = self.num / 2 if self.num % 2 == 0 else (3 * self.num) + 1
 
             # checks if num has surpassed current max
             if self.num > self.max:
