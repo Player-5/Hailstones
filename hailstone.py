@@ -43,11 +43,12 @@ class hailstone:
 
         # assigning attributes to class instance
         self.start_num = num
-        self.num = self.start_num
+
+        self.num, self.max = self.start_num
+
         self.steps = 0
-        self.max = self.start_num
-        self.lst = []
-        self.lst.append(num)
+
+        self.lst = [self.start_num]
 
     def __even(self):
         """
@@ -85,7 +86,7 @@ class hailstone:
         """
         self.num = (3 * self.num) + 1
 
-    def __print(self):
+    def print(self):
         """
         Used to output the data collected to the user through the command line
 
@@ -126,10 +127,7 @@ class hailstone:
         while self.num != 1:
 
             # checks whether num is even or odd
-            if self.num % 2 == 0:
-                self.__even()
-            else:
-                self.__odd()
+            self.__even() if self.num % 2 == 0 else self.__odd()
 
             # checks if num has surpassed current max
             if self.num > self.max:
@@ -140,7 +138,7 @@ class hailstone:
             self.steps += 1
 
         # when finished output data to user
-        self.__print()
+        self.print()
 
 if __name__ == "__main__":
 
